@@ -10,7 +10,7 @@
 
     <oauth-session id="session" is-authenticated="{{isAuthenticated}}"></oauth-session>
 
-    <oauth-service-google id="service" client_id="{{client_id}}"></oauth-service-google>
+    <oauth-connect-google id="service" client_id="{{client_id}}"></oauth-connect-google>
 
     <button id="button" disabled$="{{isAuthenticated}}" on-click="connect">connect with Google</button>
 
