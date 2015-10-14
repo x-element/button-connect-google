@@ -1,18 +1,19 @@
 <link rel="import" href="../oauth-connect-google/oauth-connect-google.html">
-<link rel="import" href="../oauth-session/oauth-session.html">
 <dom-module id="button-connect-google">
   <style>
     :host {
       display: inline-block;
     }
+    .button {
+      @apply(--button-connect-google);
+    }
   </style>
   <template>
 
-    <oauth-session id="session" is-authenticated="{{isAuthenticated}}"></oauth-session>
-
-    <oauth-connect-google id="service" client_id="{{client_id}}"></oauth-connect-google>
-
-    <button id="button" disabled$="{{isAuthenticated}}" on-click="connect">connect with Google</button>
+    <oauth-connect-google id="service" client_id="{{client_id}}"
+      on-response="on_respone" on-error="on_error">
+    </oauth-connect-google>
+    <button class="button" on-click="connect">{{text}}</button>
 
   </template>
 </dom-module>
@@ -22,8 +23,9 @@
     is: 'button-connect-google',
 
     properties: {
-      isAuthenticated: {
-        type: Boolean
+      text: {
+        type: String,
+        value: 'Connect with Google'
       },
       client_id: {
         type: String
@@ -32,6 +34,14 @@
 
     connect: function () {
       this.$.service.connect();
+    },
+
+    on_response: function (event) {
+      console.log(event.detail);
+    },
+
+    on_error: function (event) {
+      console.log(event.detail);
     }
 
   });
