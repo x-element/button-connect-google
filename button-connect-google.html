@@ -1,19 +1,23 @@
 <link rel="import" href="../oauth-connect-google/oauth-connect-google.html">
+<link rel="import" href="../../styles/style-button/style-button.html">
+
 <dom-module id="button-connect-google">
+  <style include="style-button"></style>
   <style>
     :host {
       display: inline-block;
     }
-    .button {
+    .btn{
       @apply(--button-connect-google);
     }
+
   </style>
   <template>
 
     <oauth-connect-google id="service" client_id="{{client_id}}"
       on-response="on_response" on-error="on_error">
     </oauth-connect-google>
-    <button class="button" on-click="connect">{{text}}</button>
+    <button class="btn button btn-primary" on-click="connect">Sign In with Google</button>
 
   </template>
 </dom-module>
@@ -23,10 +27,6 @@
     is: 'button-connect-google',
 
     properties: {
-      text: {
-        type: String,
-        value: 'Connect with Google'
-      },
       client_id: {
         type: String
       }
