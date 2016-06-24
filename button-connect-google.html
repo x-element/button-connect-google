@@ -1,18 +1,12 @@
 <link rel="import" href="../oauth-connect-google/oauth-connect-google.html">
-<link rel="import" href="../../styles/style-button/style-button.html">
 
 <dom-module id="button-connect-google">
-  <style include="style-button"></style>
-  <style>
-    :host {
-      display: inline-block;
-    }
-    .btn{
-      @apply(--button-connect-google);
-    }
-
-  </style>
   <template>
+    <style>
+      :host {
+        display: inline-block;
+      }
+    </style>
 
     <oauth-connect-google id="service" client_id="{{client_id}}"
       on-response="on_response" on-error="on_error">
@@ -21,6 +15,7 @@
 
   </template>
 </dom-module>
+
 <script>
   Polymer({
 
@@ -37,11 +32,11 @@
     },
 
     on_response: function (event) {
-      console.log(event.detail);
+      // console.log(event.detail);
     },
 
     on_error: function (event) {
-      console.log(event.detail);
+      // console.log(event.detail);
     }
 
   });
