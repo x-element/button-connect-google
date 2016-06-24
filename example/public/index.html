@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0">
+  <title>connect</title>
+  <script src="/components/webcomponentsjs/webcomponents.js"></script>
+  <link rel="import" href="/components/polymer/polymer.html">
+  <link rel="import" href="/components/button-connect-google/button-connect-google.html">
+</head>
+<body>
+  <h1>Connect</h1>
+
+  <button-connect-google id="connect"></button-connect-google>
+
+  <script>
+    var CLIENT_ID = 'CLIENT_ID_HERE'
+
+    var on_response = function (event) {
+      var profile = event.detail;
+      console.log(profile);
+      alert(JSON.stringify(profile, 2, '\t'));
+    }
+
+    var connect = document.getElementById('connect');
+    connect.client_id = CLIENT_ID;
+    connect.addEventListener('response', on_response);
+    connect.addEventListener('error', on_response);
+  </script>
+</body>
+</html>

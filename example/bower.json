@@ -1,0 +1,6 @@
+{
+  "name": "button-connect-google-example",
+  "dependencies": {
+    "button-connect-google": "x-element/button-connect-google"
+  }
+}
